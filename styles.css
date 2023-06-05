@@ -1,0 +1,361 @@
+/* Estilos para o cabeçalho */
+
+header {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-btn,
+.signup-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+    background-color: #555;
+}
+
+.slide-down {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slide-down.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.carousel .prev,
+.carousel .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.carousel .prev {
+    left: 10px;
+}
+
+.carousel .next {
+    right: 10px;
+}
+
+
+/* Estilos para a barra de navegação */
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* Estilos para a seção principal */
+
+section {
+    margin: 20px;
+    text-align: center;
+}
+
+.info-box {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.info-box h3 {
+    color: #333;
+}
+
+.info-box p {
+    color: #666;
+}
+
+.info-box a {
+    color: #333;
+    text-decoration: none;
+}
+
+
+/* Estilos para o rodapé */
+
+footer {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* Estilos para a seção */
+
+section {
+    padding: 50px;
+    background-color: #f2f2f2;
+}
+
+section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 16px;
+    color: #666;
+}
+
+
+/* Estilos para as caixas de informação */
+
+.info-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.info-box h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    font-size: 14px;
+    color: #666;
+}
+
+.info-box a {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.info-box a:hover {
+    background-color: #555;
+}
+
+
+/* Estilos para a seção de contato */
+
+#contato {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+
+/* Estilos para o título da seção */
+
+#contato h2 {
+    text-align: left;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+
+/* Estilos para as redes sociais */
+
+#contato {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: left;
+}
+
+.redes-sociais ul {
+    list-style: none;
+    padding: 0;
+}
+
+.redes-sociais ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.redes-sociais ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.endereco {
+    margin-top: 20px;
+}
+
+
+/* Estilos para o rodapé */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+#courses-list {
+    background-color: #f2f2f2;
+    /* Cor de fundo desejada */
+    transition: max-height 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+#courses-list li {
+    margin-bottom: 5px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    /* Posição inicial - barra lateral oculta */
+    width: 300px;
+    height: 100vh;
+    background-color: black;
+    /* Fundo preto */
+    transition: right 0.3s ease-in-out;
+    /* Transição suave ao abrir/fechar */
+    z-index: 9999;
+    /* Valor alto para sobrepor outros elementos */
+    padding: 20px;
+    /* Espaçamento interno */
+    box-sizing: border-box;
+    /* Incluir preenchimento no tamanho total */
+    color: #fff;
+    /* Cor do texto */
+    background-color: black;
+    /* Cor de fundo do menu */
+    color: white;
+    /* Cor do texto no menu */
+}
+
+.sidebar .signup-btn {
+    background-color: #ffffff;
+    /* Cor de fundo do botão "Cadastrar" */
+    color: #fff;
+    /* Cor do texto do botão "Cadastrar" */
+    padding: 10px 20px;
+    /* Espaçamento interno do botão "Cadastrar" */
+    border: none;
+    /* Remover a borda do botão "Cadastrar" */
+    border-radius: 4px;
+    /* Arredondar as bordas do botão "Cadastrar" */
+    cursor: pointer;
+    /* Alterar o cursor ao passar o mouse sobre o botão "Cadastrar" */
+    transition: background-color 0.3s ease;
+    /* Adicionar uma transição suave de cor ao botão "Cadastrar" */
+}
+
+.sidebar.open {
+    right: 0;
+    /* Posição ao abrir - barra lateral visível */
+}
+
+.sidebar-content {
+    padding: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: black;
+    /* Cor do ícone de fechar */
+    /* Cor do ícone de fechar */
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.sidebar form {
+    margin-bottom: 20px;
+}
+
+.sidebar input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.sidebar button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.sidebar p {
+    margin-top: 0;
+}
+
+.sidebar a {
+    color: blue;
+}

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bread of the poor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="icon" type="image/png" href="https://img.freepik.com/vetores-premium/robo-bonito-icon-ilustracao-conceito-de-icone-de-robo-de-tecnologia-isolado-estilo-cartoon-plana_138676-1219.jpg">
+
+
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1>bread of the poor</h1>
+            <div class="login-btns">
+                <button class="login-btn">Login</button>
+                <button class="signup-btn">Cadastrar</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar">
+        <div class="sidebar-content">
+            <button class="close-btn">×</button>
+            <h2>Login</h2>
+            <form>
+                <input type="text" placeholder="Nome de usuário">
+                <input type="password" placeholder="Senha">
+                <button type="submit">Entrar</button>
+            </form>
+            <p>Ainda não tem uma conta? <a href="#">Cadastrar</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+
+    <nav>
+        <ul>
+            <li><a href="#">Página Inicial</a></li>
+            <li><a href="javascript:void(0);" onclick="scrollToSection('cursos')">Cursos</a></li>
+            <li><a href="#">Programação</a></li>
+            <li><a href="#">Projetos</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="carousel">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/P%C3%A3o_dos_Pobres.jpg" alt="Slide 1">
+        <img src="https://www.paodospobres.org.br/site/wp-content/uploads/2016/06/AF_0004541.jpg" alt="Slide 2">
+        <img src="https://s2.glbimg.com/mb4GFRpHS3MoVbUqMRjPgeZJDgk=/1200x/smart/filters:cover():strip_icc()/s04.video.glbimg.com/x720/9097147.jpg" alt="Slide 3">
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showSlide(slideIndex);
+
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+        }
+
+        function showSlide(n) {
+            var slides = document.getElementsByTagName("img");
+
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+
+    <script>
+        function scrollToSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            section.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+    <section>
+        <h2>Bem-vindo ao centro de comunicações do Pão dos Pobres</h2>
+        <p>Aqui você encontra informações importantes sobre o seu curso e sobre todos os outros cursos oferecidos pele instituição e projetos desenvolvidos pelos alunos.</p>
+        <style>
+            .courses-list-hidden {
+                display: none;
+            }
+            
+            .course-item {
+                margin-bottom: 10px;
+            }
+            
+            .course-info {
+                background-color: #f5f5f5;
+                padding: 10px;
+            }
+            
+            .course-info h4,
+            .course-info p {
+                margin: 0;
+            }
+            /* Adicionar estilo de mão ao cursor */
+            
+            a.pointer {
+                cursor: pointer;
+            }
+        </style>
+
+        <div class="info-box">
+            <h3>Cursos</h3>
+            <p>Confira todos os cursos disponíveis.</p>
+            <a onclick="toggleCourses()" class="pointer">Ver cursos</a>
+            <ul id="courses-list" class="courses-list-hidden">
+                <li>
+                    <div class="course-item">
+                        <div class="course-info">
+                            <h4>Manutenção de Computadores</h4>
+                            <p>Capacita para montagem e manutenção de hardware e software, instalação e atualização de sistemas operacionais e equipamentos.</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="course-item">
+                        <div class="course-info">
+                            <h4>Eletromecânica de Elevadores</h4>
+                            <p>Capacita o jovem para atuar como auxiliar de montagem e modernização de equipamentos de transporte vertical, bem como na manutenção preventiva e corretiva.</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="course-item">
+                        <div class="course-info">
+                            <h4>Gastronomia</h4>
+                            <p>Este curso é um ‘prato cheio’ de oportunidades. Os aprendizes são capacitados para atuar como auxiliar de cozinha. Aprendem culinária, empreendedorismo e iniciação em gastronomia nacional e internacional. </p>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="course-item">
+                        <div class="course-info">
+                            <h4>Assistente de Cabeleireiro</h4>
+                            <p>Capacita o jovem para atuar como auxiliar de cabeleireiro. Aprende técnicas de lavatório, escovação, prancha, babyliss, aplicação de hidratação e coloração e básico de penteados e tranças.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="course-item">
+                        <div class="course-info">
+                            <h4>Vendas e Atendimento</h4>
+                            <p>Capacita para o desenvolvimento de atividades de vendas e atendimento ao cliente, bem como importação, exportação, planejamento, armazenamento e prestação de serviços.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="course-item">
+                        <div class="course-info">
+                            <h4>Corte, Costura e Modelagem Sustentável</h4>
+                            <p>Os jovens são capacitados para atuar como auxiliar de corte e costura. Aprendem técnicas relacionadas ao corte e a costura por meio da confecção de moldes e produtos, utilizando na prática conceitos da moda e do consumo sustentável.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            var coursesList = document.getElementById("courses-list");
+            var isCoursesVisible = false;
+
+            function toggleCourses() {
+                if (isCoursesVisible) {
+                    coursesList.classList.add("courses-list-hidden");
+                    isCoursesVisible = false;
+                } else {
+                    coursesList.classList.remove("courses-list-hidden");
+                    isCoursesVisible = true;
+                }
+            }
+        </script>
+
+
+
+
+        <script>
+            var coursesList = document.getElementById("courses-list");
+            var isCoursesVisible = false;
+
+            function toggleCourses() {
+                if (isCoursesVisible) {
+                    coursesList.classList.add("courses-list-hidden");
+                    isCoursesVisible = false;
+                } else {
+                    coursesList.classList.remove("courses-list-hidden");
+                    isCoursesVisible = true;
+                }
+            }
+        </script>
+
+
+
+
+
+        <div class="info-box">
+            <h3>Progamação</h3>
+            <p>Mantenha-se atualizado com a data de eventos importantes .</p>
+            <a href="#">Ver programação</a>
+        </div>
+
+        <div class="info-box">
+            <h3>Projetos</h3>
+            <p>Encontre projetos realizados pelos alunos da instituição</p>
+            <a href="#">Acessar projetos</a>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+
+        <div class="redes-sociais">
+            <h3>Redes Sociais</h3>
+            <ul class="social-icons">
+                <li><a href="https://www.facebook.com/seu-usuario" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/seu-usuario" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.twitter.com/seu-usuario" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            </ul>
+        </div>
+
+
+        <div class="endereco">
+            <h3>Endereço</h3>
+            <p>R. da República, 801 - Cidade Baixa, Porto Alegre - RS </p>
+            <p>CEP 91380-250</p>
+        </div>
+
+
+    </section>
+
+
+    <footer>
+        <p>&copy; 2023 Portal de Alunos. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
