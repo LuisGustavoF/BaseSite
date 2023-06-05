@@ -8,11 +8,115 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" type="image/png" href="https://img.freepik.com/vetores-premium/robo-bonito-icon-ilustracao-conceito-de-icone-de-robo-de-tecnologia-isolado-estilo-cartoon-plana_138676-1219.jpg">
-
+    <style>
+        /* Estilos para a tela suspensa */
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        .welcome-box {
+            background-color: #fff;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            /* Aumenta a largura para 80% */
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s ease;
+        }
+        /* Estilos para a animação de fade-in */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        /* Estilos adicionais */
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        
+        h3 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: #777;
+            margin-bottom: 20px;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 
 </head>
 
 <body>
+    <div class="overlay" id="overlay">
+        <div class="welcome-box">
+            <h3>Bem-vindo ao bread of the poor!</h3>
+            <p>Aqui estão algumas informações de uso</p>
+            <ul>
+                <li>Site destinado a alunos da instituição</li>
+                <li>O objetivo é que os alunos possam se comunicar, olhar projetos de outros alunos e ter algumas informaçoes de eventos</li>
+
+            </ul>
+            <button onclick="closeOverlay()">Começar</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para fechar a tela suspensa
+        function closeOverlay() {
+            var overlay = document.getElementById("overlay");
+            overlay.style.display = "none";
+        }
+    </script>
     <header>
         <div class="header-content">
             <h1>bread of the poor</h1>
@@ -194,10 +298,6 @@
                 }
             }
         </script>
-
-
-
-
         <script>
             var coursesList = document.getElementById("courses-list");
             var isCoursesVisible = false;
@@ -214,14 +314,72 @@
         </script>
 
 
-
-
-
         <div class="info-box">
-            <h3>Progamação</h3>
-            <p>Mantenha-se atualizado com a data de eventos importantes .</p>
-            <a href="#">Ver programação</a>
+            <h3>Programação</h3>
+            <p>Mantenha-se atualizado com a data de eventos importantes.</p>
+            <a href="#" id="toggle-programacao">Ver programação</a>
+            <div id="programacao-content" class="programacao-content-hidden">
+                <div id="calendario"></div>
+            </div>
         </div>
+
+        <style>
+            .programacao-content-hidden {
+                display: none;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            
+            .programacao-content-visible {
+                display: block;
+                opacity: 1;
+                transition: opacity 0.3s ease;
+            }
+        </style>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+
+        <script>
+            $(document).ready(function() {
+                // Configuração do calendário
+                $('#calendario').fullCalendar({
+                    events: [{
+                            title: 'Feriado',
+                            start: '2023-06-08', // Data de início do evento
+                            end: '2023-06-08', // Data de término do evento
+                            backgroundColor: '#ff0000' // Cor de fundo do evento
+                        }, {
+                            title: 'Evento 2',
+                            start: '2023-05-15',
+                            end: '2023-05-17',
+                            backgroundColor: '#00ff00'
+                        },
+                        // Adicione mais eventos aqui, se necessário
+                    ]
+                });
+
+                // Toggle para exibir/ocultar a programação
+                $('#toggle-programacao').click(function(event) {
+                    event.preventDefault(); // Impede o comportamento padrão do link
+
+                    var programacaoContent = $('#programacao-content');
+
+                    if (programacaoContent.hasClass('programacao-content-visible')) {
+                        programacaoContent.removeClass('programacao-content-visible');
+                        programacaoContent.addClass('programacao-content-hidden');
+                    } else {
+                        programacaoContent.removeClass('programacao-content-hidden');
+                        programacaoContent.addClass('programacao-content-visible');
+                    }
+                });
+            });
+        </script>
+
 
         <div class="info-box">
             <h3>Projetos</h3>
